@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B2D25512-27C8-4A9D-ADF0-66D0874A9A59}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MicroOrmDemo.net</RootNamespace>
+    <AssemblyName>MicroOrmDemo.net</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Common, Version=4.5.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Common.4.5.6\lib\net45\ServiceStack.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Interfaces.4.5.6\lib\portable-wp80+sl5+net45+win8+wpa81+monotouch+monoandroid+xamarin.ios10\ServiceStack.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite, Version=4.5.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.OrmLite.4.5.6\lib\net45\ServiceStack.OrmLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite.SqlServer, Version=4.5.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.OrmLite.SqlServer.4.5.6\lib\net45\ServiceStack.OrmLite.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=4.5.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.4.5.6\lib\net45\ServiceStack.Text.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Simple.Data, Version=0.19.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Simple.Data.Core.0.19.0.0\lib\net40\Simple.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Simple.Data.Ado, Version=0.19.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Simple.Data.Ado.0.19.0.0\lib\net40\Simple.Data.Ado.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Simple.Data.SqlServer, Version=0.19.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Simple.Data.SqlServer.0.19.0.0\lib\net40\Simple.Data.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dapper\DapperQueries.cs" />
+    <Compile Include="EF\Address.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\AddressType.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\AdventureWork.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdventureWork.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\AdventureWork.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\AdventureWork.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdventureWork.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EF\AWBuildVersion.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\BillOfMaterials.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\BusinessEntity.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\BusinessEntityAddress.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\BusinessEntityContact.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ContactType.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\CountryRegion.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\CountryRegionCurrency.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\CreditCard.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Culture.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Currency.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\CurrencyRate.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Customer.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\DatabaseLog.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Department.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\EfQueries.cs" />
+    <Compile Include="EF\EmailAddress.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Employee.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\EmployeeDepartmentHistory.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\EmployeePayHistory.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ErrorLog.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Illustration.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\JobCandidate.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Location.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Password.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Person.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\PersonCreditCard.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\PersonPhone.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\PhoneNumberType.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Product.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ProductCategory.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ProductCostHistory.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ProductDescription.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ProductDocument.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ProductInventory.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ProductListPriceHistory.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ProductModel.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ProductModelIllustration.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ProductModelProductDescriptionCulture.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ProductPhoto.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ProductProductPhoto.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ProductReview.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ProductSubcategory.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ProductVendor.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\PurchaseOrderDetail.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\PurchaseOrderHeader.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\SalesOrderDetail.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\SalesOrderHeader.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\SalesOrderHeaderSalesReason.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\SalesPerson.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\SalesPersonQuotaHistory.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\SalesReason.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\SalesTaxRate.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\SalesTerritory.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\SalesTerritoryHistory.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ScrapReason.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Shift.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ShipMethod.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ShoppingCartItem.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\SpecialOffer.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\SpecialOfferProduct.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\StateProvince.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Store.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\TransactionHistory.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\TransactionHistoryArchive.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ufnGetContactInformation_Result.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\UnitMeasure.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\uspGetBillOfMaterials_Result.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\uspGetEmployeeManagers_Result.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\uspGetManagerEmployees_Result.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\uspGetWhereUsedProductID_Result.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Vendor.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\WorkOrder.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\WorkOrderRouting.cs">
+      <DependentUpon>AdventureWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Massive\Massive.cs" />
+    <Compile Include="Massive\Massive.SqlServer.cs" />
+    <Compile Include="Massive\MassiveQueries.cs" />
+    <Compile Include="Orders.cs" />
+    <Compile Include="OrmLite\OrmLiteQueries.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Simple.Data\SimpleDataQueries.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="EF\AdventureWork.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AdventureWork.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EF\AdventureWork.edmx.diagram">
+      <DependentUpon>AdventureWork.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EF\AdventureWork.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AdventureWork.edmx</DependentUpon>
+      <LastGenOutput>AdventureWork.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EF\AdventureWork.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AdventureWork.edmx</DependentUpon>
+      <LastGenOutput>AdventureWork.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
