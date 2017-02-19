@@ -1,6 +1,8 @@
 ﻿using MicroOrmDemo.net.Dapper;
 using MicroOrmDemo.net.EF;
 using MicroOrmDemo.net.Massive;
+using MicroOrmDemo.net.MicroLite;
+using MicroOrmDemo.net.NPoco;
 using MicroOrmDemo.net.OrmLite;
 using MicroOrmDemo.net.PetaPocoSample;
 using MicroOrmDemo.net.Simple.Data;
@@ -49,12 +51,12 @@ namespace MicroOrmDemo.net
             Console.WriteLine("Massive dynamic: " + watch.ElapsedMilliseconds);
 
             //massive dynamic to Strongly typed
-            //var massivequery = new MassiveQueries();
-            //watch = new Stopwatch();
-            //watch.Start();
-            //var dataMassiveTyped = massivequery.GetOrders();
-            //watch.Stop();
-            //Console.WriteLine("Massive strongly typed: " + watch.ElapsedMilliseconds);
+            massivequery = new MassiveQueries();
+            watch = new Stopwatch();
+            watch.Start();
+            var dataMassiveTyped = massivequery.GetOrders();
+            watch.Stop();
+            Console.WriteLine("Massive strongly typed: " + watch.ElapsedMilliseconds);
 
             //Orm lite
             var ormLiteQuery = new OrmLiteQueries();
@@ -73,12 +75,12 @@ namespace MicroOrmDemo.net
             Console.WriteLine("Simple Data dynamic: " + watch.ElapsedMilliseconds);
 
             //Simple data dynamic to strongly typed
-            //var simpleDataQuery = new SimpleDataQueries();
-            //watch = new Stopwatch();
-            //watch.Start();
-            //var datasimpleData = simpleDataQuery.GetOrders();
-            //watch.Stop();
-            //Console.WriteLine("Simple Data strongly typed : " + watch.ElapsedMilliseconds);
+            simpleDataQuery = new SimpleDataQueries();
+            watch = new Stopwatch();
+            watch.Start();
+            var datasimpleData = simpleDataQuery.GetOrders();
+            watch.Stop();
+            Console.WriteLine("Simple Data strongly typed : " + watch.ElapsedMilliseconds);
 
             var petaPocoQuery = new PetaPocoQueries();
             watch = new Stopwatch();
@@ -86,6 +88,20 @@ namespace MicroOrmDemo.net
             var dataPetaPoco = petaPocoQuery.GetOrders();
             watch.Stop();
             Console.WriteLine("PetaPoco dynamic: " + watch.ElapsedMilliseconds);
+
+            var microLiteQuery = new MicroLiteQueries();
+            watch = new Stopwatch();
+            watch.Start();
+            var dataMicroLite = microLiteQuery.GetOrders();
+            watch.Stop();
+            Console.WriteLine("MicroLite dynamic: " + watch.ElapsedMilliseconds);
+
+            var nPocoQuery = new NPocoQueries();
+            watch = new Stopwatch();
+            watch.Start();
+            var dataNPoco = nPocoQuery.GetOrders();
+            watch.Stop();
+            Console.WriteLine("NPoco dynamic: " + watch.ElapsedMilliseconds);
 
             Console.ReadLine();
         }

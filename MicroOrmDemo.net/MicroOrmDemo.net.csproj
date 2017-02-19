@@ -45,6 +45,14 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MicroLite, Version=6.3.0.0, Culture=neutral, PublicKeyToken=08410e6798c4fa37, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicroLite.6.3.2\lib\net46\MicroLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPoco, Version=3.4.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPoco.3.4.8\lib\net45\NPoco.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="ServiceStack.Common, Version=4.5.6.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ServiceStack.Common.4.5.6\lib\net45\ServiceStack.Common.dll</HintPath>
       <Private>True</Private>
@@ -81,6 +89,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -336,7 +345,9 @@
     <Compile Include="Massive\Massive.cs" />
     <Compile Include="Massive\Massive.SqlServer.cs" />
     <Compile Include="Massive\MassiveQueries.cs" />
+    <Compile Include="MicroLite\MicroLiteQueries.cs" />
     <Compile Include="Models\PetaPoco.cs" />
+    <Compile Include="NPoco\NPocoQueries.cs" />
     <Compile Include="Orders.cs" />
     <Compile Include="OrmLite\OrmLiteQueries.cs" />
     <Compile Include="PetaPoco\PetaPocoQueries.cs" />
