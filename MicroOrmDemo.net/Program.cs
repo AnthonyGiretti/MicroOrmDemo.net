@@ -1,4 +1,5 @@
-﻿using MicroOrmDemo.net.Dapper;
+﻿using MicroOrmDemo.net.AdoNet;
+using MicroOrmDemo.net.Dapper;
 using MicroOrmDemo.net.EF;
 using MicroOrmDemo.net.Massive;
 using MicroOrmDemo.net.MicroLite;
@@ -19,16 +20,39 @@ namespace MicroOrmDemo.net
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("10 itérations");
+            //Appels multiple, 100 itérations , 1 enregistrement
+            MultipleIteration(10);
 
-            SingleCall();
+            Console.WriteLine();
+            Console.WriteLine("100 itérations");
+            //Appels multiple, 100 itérations , 1 enregistrement
+            MultipleIteration(100);
+
+            Console.WriteLine();
+            Console.WriteLine("1000 itérations");
+            //Appels multiple, 100 itérations , 1 enregistrement
+            MultipleIteration(1000);
+
+            //Appel unique, 500 enregistrements
+            Console.WriteLine();
+
             SingleCall();
         }
 
         private static void SingleCall()
         {
+            //Ado.net
+            var adoquery = new AdoQueries();
+            var watch = new Stopwatch();
+            watch.Start();
+            var dataAdo = adoquery.GetOrders();
+            watch.Stop();
+            Console.WriteLine("ADO.NET: " + watch.ElapsedMilliseconds);
+
             //Entity Framework
             var efquery = new EfQueries();
-            var watch = new Stopwatch();
+            watch = new Stopwatch();
             watch.Start();
             var dataEF = efquery.GetOrders();
             watch.Stop();
@@ -108,7 +132,21 @@ namespace MicroOrmDemo.net
 
         private static void MultipleIteration(int calls)
         {
-            
+            //Ado.net
+            var adoquery = new AdoQueries();
+            var watch = new Stopwatch();
+            watch.Start();
+            var data = adoquery.GetOrder(calls);
+            watch.Stop();
+            Console.WriteLine("ADO.NET: " + watch.ElapsedMilliseconds);
+
+            //Dapper
+            var dapperquery = new DapperQueries();
+            watch = new Stopwatch();
+            watch.Start();
+            var dataDapper = dapperquery.GetOrder(calls);
+            watch.Stop();
+            Console.WriteLine("Dapper T: " + watch.ElapsedMilliseconds);
         }
     }
 }

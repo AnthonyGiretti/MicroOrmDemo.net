@@ -100,6 +100,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdoNet\AdoQueries.cs" />
     <Compile Include="Dapper\DapperQueries.cs" />
     <Compile Include="EF\Address.cs">
       <DependentUpon>AdventureWork.tt</DependentUpon>
