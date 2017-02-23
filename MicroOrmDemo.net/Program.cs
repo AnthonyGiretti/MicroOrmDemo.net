@@ -20,6 +20,9 @@ namespace MicroOrmDemo.net
     {
         static void Main(string[] args)
         {
+            Init();
+
+            Console.WriteLine();
             Console.WriteLine("10 itérations");
             //Appels multiple, 100 itérations , 1 enregistrement
             MultipleIteration(10);
@@ -33,12 +36,18 @@ namespace MicroOrmDemo.net
             Console.WriteLine("1000 itérations");
             //Appels multiple, 100 itérations , 1 enregistrement
             MultipleIteration(1000);
-
-            //Appel unique, 500 enregistrements
+       
             Console.WriteLine();
-
+            Console.WriteLine("1 itération ramenant 500 enregistrements");
+            //Appel unique, 500 enregistrements
             SingleCall();
+
+            Console.ReadLine();
         }
+
+        private static void Init()
+        { }
+
 
         private static void SingleCall()
         {
@@ -111,23 +120,23 @@ namespace MicroOrmDemo.net
             watch.Start();
             var dataPetaPoco = petaPocoQuery.GetOrders();
             watch.Stop();
-            Console.WriteLine("PetaPoco dynamic: " + watch.ElapsedMilliseconds);
+            Console.WriteLine("PetaPoco : " + watch.ElapsedMilliseconds);
 
             var microLiteQuery = new MicroLiteQueries();
             watch = new Stopwatch();
             watch.Start();
             var dataMicroLite = microLiteQuery.GetOrders();
             watch.Stop();
-            Console.WriteLine("MicroLite dynamic: " + watch.ElapsedMilliseconds);
+            Console.WriteLine("MicroLite : " + watch.ElapsedMilliseconds);
 
             var nPocoQuery = new NPocoQueries();
             watch = new Stopwatch();
             watch.Start();
             var dataNPoco = nPocoQuery.GetOrders();
             watch.Stop();
-            Console.WriteLine("NPoco dynamic: " + watch.ElapsedMilliseconds);
+            Console.WriteLine("NPoco : " + watch.ElapsedMilliseconds);
 
-            Console.ReadLine();
+           
         }
 
         private static void MultipleIteration(int calls)
@@ -136,7 +145,7 @@ namespace MicroOrmDemo.net
             var adoquery = new AdoQueries();
             var watch = new Stopwatch();
             watch.Start();
-            var data = adoquery.GetOrder(calls);
+            var data = adoquery.GetOrders(calls);
             watch.Stop();
             Console.WriteLine("ADO.NET: " + watch.ElapsedMilliseconds);
 
@@ -144,9 +153,79 @@ namespace MicroOrmDemo.net
             var dapperquery = new DapperQueries();
             watch = new Stopwatch();
             watch.Start();
-            var dataDapper = dapperquery.GetOrder(calls);
+            var dataDapper = dapperquery.GetOrders(calls);
             watch.Stop();
-            Console.WriteLine("Dapper T: " + watch.ElapsedMilliseconds);
+            Console.WriteLine("Dapper : " + watch.ElapsedMilliseconds);
+
+            //EF
+            var efquery = new EfQueries();
+            watch = new Stopwatch();
+            watch.Start();
+            var dataEf = efquery.GetOrders(calls);
+            watch.Stop();
+            Console.WriteLine("EF : " + watch.ElapsedMilliseconds);
+
+            //massive dynamic
+            var massivequery = new MassiveQueries();
+            watch = new Stopwatch();
+            watch.Start();
+            var dataMassiveDynamic = massivequery.GetOrdersDynamic(calls);
+            watch.Stop();
+            Console.WriteLine("Massive dynamic: " + watch.ElapsedMilliseconds);
+
+            //massive dynamic to Strongly typed
+            massivequery = new MassiveQueries();
+            watch = new Stopwatch();
+            watch.Start();
+            var dataMassiveTyped = massivequery.GetOrders(calls);
+            watch.Stop();
+            Console.WriteLine("Massive strongly typed: " + watch.ElapsedMilliseconds);
+
+            //microlite
+            var microLiteQuery = new MicroLiteQueries();
+            watch = new Stopwatch();
+            watch.Start();
+            var dataMicroLite = microLiteQuery.GetOrders(calls);
+            watch.Stop();
+            Console.WriteLine("MicroLite : " + watch.ElapsedMilliseconds);
+
+            //Simple data dynamic 
+            var simpleDataQuery = new SimpleDataQueries();
+            watch = new Stopwatch();
+            watch.Start();
+            var datasimpleDataDynamic = simpleDataQuery.GetOrdersDynamic(calls);
+            watch.Stop();
+            Console.WriteLine("Simple Data dynamic: " + watch.ElapsedMilliseconds);
+
+            //Simple data strongly typed
+            simpleDataQuery = new SimpleDataQueries();
+            watch = new Stopwatch();
+            watch.Start();
+            var datasimpleDataStronglyTyped = simpleDataQuery.GetOrders(calls);
+            watch.Stop();
+            Console.WriteLine("Simple Data strongly typed: " + watch.ElapsedMilliseconds);
+
+            //Orm lite
+            var ormLiteQuery = new OrmLiteQueries();
+            watch = new Stopwatch();
+            watch.Start();
+            var dataormLite = ormLiteQuery.GetOrders(calls);
+            watch.Stop();
+            Console.WriteLine("Orm Lite: " + watch.ElapsedMilliseconds);
+
+            var petaPocoQuery = new PetaPocoQueries();
+            watch = new Stopwatch();
+            watch.Start();
+            var dataPetaPoco = petaPocoQuery.GetOrders(calls);
+            watch.Stop();
+            Console.WriteLine("PetaPoco : " + watch.ElapsedMilliseconds);
+
+            var nPocoQuery = new NPocoQueries();
+            watch = new Stopwatch();
+            watch.Start();
+            var dataNPoco = nPocoQuery.GetOrders(calls);
+            watch.Stop();
+            Console.WriteLine("NPoco : " + watch.ElapsedMilliseconds);
         }
     }
 }

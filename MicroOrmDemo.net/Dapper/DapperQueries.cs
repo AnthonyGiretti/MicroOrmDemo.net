@@ -20,7 +20,7 @@ namespace MicroOrmDemo.net.Dapper
             }
         }
 
-        public List<Orders> GetOrder(int iteration)
+        public List<Orders> GetOrders(int iteration)
         {
             var listOrders = new List<Orders>();
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AdventureWorks2014"].ToString()))

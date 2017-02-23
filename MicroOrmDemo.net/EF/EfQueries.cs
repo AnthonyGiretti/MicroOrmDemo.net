@@ -24,5 +24,29 @@ namespace MicroOrmDemo.net.EF
                 return query.ToList();
             }
         }
+        public List<Orders> GetOrders(int iteration)
+        {
+            var listOrders = new List<Orders>();
+            using (var context = new AdventureWorks2014Entities())
+            {
+
+                for (int i = 1; i <= iteration; i++)
+                    listOrders.Add(GetOrder(context, i));
+            }
+
+            return listOrders;
+        }
+
+        private Orders GetOrder(AdventureWorks2014Entities context, int id)
+        {
+            return  context.WorkOrder.AsNoTracking().Where(f=> f.WorkOrderID == id).Select(
+                    x => new Orders
+                    {
+                        Id = x.WorkOrderID,
+                        ProductName = x.Product.Name,
+                        Quantity = x.OrderQty,
+                        Date = x.DueDate
+                    }).FirstOrDefault();
+        }
     }
 }
