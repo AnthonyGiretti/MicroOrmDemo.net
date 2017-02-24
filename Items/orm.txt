@@ -1,0 +1,41 @@
+TILISATION / PRISE EN MAIN / PRODUCTIVITÉ
+
+ADO.NET: +  pas compliqué mais long et fastidieux
+EF: ++ 
+MASSIVE: ++ (dynamic) mapping attribut
+DAPPER: +++
+ORMLITE: +++
+Simple.Data: + (full dynamic)
+PetaPOCO: ++ (dynamic et non dynamic), mapping attribut
+MicroLite: ++ (dynamic et non dynamic)
+NPoco : ++
+
+
+
+SECURITE :
+
+ADO.NET: Oui
+EF: Oui
+MASSIVE: ???
+DAPPER: Oui
+ORMLITE: ???
+Simple.Data: ???
+PetaPOCO: ???
+MicroLite: ???
+NPoco : Oui
+
+
+
+Navigation Property
+
+ADO.NET: N/A
+EF: Oui
+MASSIVE: 
+DAPPER: Oui
+ORMLITE: 
+Simple.Data: 
+PetaPOCO: 
+MicroLite: 
+NPoco : 
+
+
