@@ -12,13 +12,13 @@ namespace MicroOrmDemo.net.Simple.Data
         public List<dynamic> GetOrdersDynamic()
         {
             dynamic dbConnection = Database.OpenNamedConnection("AdventureWorks2014");
-
+         
             var workerId = dbConnection.WorkOrder.WorkOrderID;
             var productName = dbConnection.WorkOrder.Product.Name;
             var orderQty = dbConnection.WorkOrder.OrderQty;
             var dueDate = dbConnection.WorkOrder.DueDate;
 
-            return dbConnection.WorkOrder.Select(workerId, productName, orderQty, dueDate).Take(500);
+            return dbConnection.WorkOrder.Select(workerId, productName, orderQty, dueDate).Take(500);                     
         }
         public List<Orders> GetOrders()
         {

@@ -17,4 +17,20 @@ namespace MicroOrmDemo.net
         public int Quantity { get; set; }
         public DateTime Date { get; set; }
     }
+
+    public class WorkOrder
+    {
+        public WorkOrder() { }
+
+        public int WorkOrderId { get; set; }
+        public string ProductId { get; set; }
+        public int OrderQty { get; set; }
+        public int StockedQty { get; set; }
+        public int ScrappedQty { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public DateTime DueDate { get; set; }
+        public int? ScrapReasonID { get; set; }
+        public DateTime ModifiedDate { get; set; }
+    }
 }

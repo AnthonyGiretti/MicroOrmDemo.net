@@ -355,6 +355,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Simple.Data\SimpleDataQueries.cs" />
+    <Compile Include="Simple.Data\SimpleDataRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
