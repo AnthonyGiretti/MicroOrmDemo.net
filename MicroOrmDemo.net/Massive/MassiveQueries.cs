@@ -5,9 +5,9 @@ using Massive;
 
 namespace MicroOrmDemo.net.Massive
 {
-    public class Orders : DynamicModel
+    public class OrdersDynamicModel : DynamicModel
     {
-        public Orders() : base("AdventureWorks2014", "Production.WorkOrder", "WorkOrderID") { }
+        public OrdersDynamicModel() : base("AdventureWorks2014", "Production.WorkOrder", "WorkOrderID") { }
 
         public int Id { get; set; }
         public string ProductName { get; set; }
@@ -20,18 +20,18 @@ namespace MicroOrmDemo.net.Massive
         //1 itération
         public List<dynamic> GetOrdersDynamic()
         {
-            var table = new Orders();
+            var table = new OrdersDynamicModel();
 
             return table.Query(@"SELECT TOP 500 [WorkOrderID] AS Id, P.Name AS ProductName, [OrderQty] AS Quantity, [DueDate] AS Date
                                  FROM [AdventureWorks2014].[Production].[WorkOrder] AS WO 
                                  INNER JOIN[Production].[Product] AS P ON P.ProductID = WO.ProductID").ToList();
         }
-        public List<Orders> GetOrders()
+        public List<OrdersDynamicModel> GetOrders()
         {
             var orders = GetOrdersDynamic();
 
-            return orders.Select(x=> new Orders
-                        {
+            return orders.Select(x=> new OrdersDynamicModel
+            {
                             Id = x.Id,
                             ProductName = x.ProductName,
                             Quantity = x.Quantity,
@@ -44,18 +44,18 @@ namespace MicroOrmDemo.net.Massive
         {
             var listOrders = new List<dynamic>();
 
-            var table = new Orders();
+            var table = new OrdersDynamicModel();
             for (int i = 1; i <= iteration; i++)
                     listOrders.Add(GetOrderDynamic(table, i));
             
 
             return listOrders;
         }
-        public List<Orders> GetOrders(int iteration)
+        public List<OrdersDynamicModel> GetOrders(int iteration)
         {
-            var listOrders = new List<Orders>();
+            var listOrders = new List<OrdersDynamicModel>();
 
-            var table = new Orders();
+            var table = new OrdersDynamicModel();
             for (int i = 1; i <= iteration; i++)
                 listOrders.Add(GetOrder(table, i));
 
@@ -63,7 +63,7 @@ namespace MicroOrmDemo.net.Massive
             return listOrders;
         }
 
-        private dynamic GetOrderDynamic(Orders table, int id)
+        private dynamic GetOrderDynamic(OrdersDynamicModel table, int id)
         {
             return table.Query(@"SELECT [WorkOrderID] AS Id, P.Name AS ProductName, [OrderQty] AS Quantity, [DueDate] AS Date
                                  FROM [AdventureWorks2014].[Production].[WorkOrder] AS WO 
@@ -72,10 +72,11 @@ namespace MicroOrmDemo.net.Massive
 
         }
         
-        private Orders GetOrder(Orders table, int id)
+        private OrdersDynamicModel GetOrder(OrdersDynamicModel table, int id)
         {
             var order = GetOrderDynamic(table, id);
-            return new Orders {
+            return new OrdersDynamicModel
+            {
                         Id = order.Id,
                         ProductName = order.ProductName,
                         Quantity = order.Quantity,

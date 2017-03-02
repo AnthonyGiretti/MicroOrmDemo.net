@@ -346,6 +346,7 @@
     <Compile Include="Massive\Massive.cs" />
     <Compile Include="Massive\Massive.SqlServer.cs" />
     <Compile Include="Massive\MassiveQueries.cs" />
+    <Compile Include="Massive\MassiveRepository.cs" />
     <Compile Include="MicroLite\MicroLiteQueries.cs" />
     <Compile Include="Models\PetaPoco.cs" />
     <Compile Include="NPoco\NPocoQueries.cs" />

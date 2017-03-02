@@ -47,7 +47,7 @@ namespace MicroOrmDemo.net
             */
 
             var repo = new OrmLiteRepository();
-            var data = repo.GetOrderById(1);
+            var data = repo.GetOrders().Result;
         }
 
         private static void Init()
