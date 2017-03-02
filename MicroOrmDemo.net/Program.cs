@@ -20,6 +20,7 @@ namespace MicroOrmDemo.net
     {
         static void Main(string[] args)
         {
+            /*
             Init();
 
             Console.WriteLine();
@@ -43,6 +44,10 @@ namespace MicroOrmDemo.net
             SingleCall();
 
             Console.ReadLine();
+            */
+
+            var repo = new OrmLiteRepository();
+            var data = repo.GetOrderById(1);
         }
 
         private static void Init()

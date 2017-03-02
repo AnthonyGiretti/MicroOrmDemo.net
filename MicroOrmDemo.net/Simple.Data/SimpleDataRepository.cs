@@ -50,20 +50,22 @@ namespace MicroOrmDemo.net.Simple.Data
             };
         }
 
-        public void Add(WorkOrder order)
+        public void Add(WorkOrder workOrder)
         {
-            _dbConnection.WorkOrder.Insert(order);
+            _dbConnection.WorkOrder.Insert(workOrder);
             //dynamic data = _dbConnection.WorkOrder.Insert(ProductId : 1, OrderQty : 10, StockedQty : 50 .......);
         }
 
-        public void Update(WorkOrder order)
+        public void Update(WorkOrder workOrder)
         {
-            _dbConnection.WorkOrder.UpdateById(order);
+            _dbConnection.WorkOrder.UpdateByWorkOrderId(workOrder);
+            //_dbConnection.WorkOrder.Update(WorkOrderId: workOrder.WorkOrderId);
         }
 
-        public void Delete(WorkOrder order)
+        public void Delete(WorkOrder workOrder)
         {
-            _dbConnection.WorkOrder.DeleteById(order);
+            _dbConnection.WorkOrder.DeleteByWorkOrderId(workOrder.WorkOrderId);
+            //_dbConnection.WorkOrder.Delete(WorkOrderId: workOrder.WorkOrderId);
         }
     }
 }

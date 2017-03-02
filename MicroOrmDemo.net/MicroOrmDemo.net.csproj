@@ -351,6 +351,7 @@
     <Compile Include="NPoco\NPocoQueries.cs" />
     <Compile Include="Orders.cs" />
     <Compile Include="OrmLite\OrmLiteQueries.cs" />
+    <Compile Include="OrmLite\OrmLiteRepository.cs" />
     <Compile Include="PetaPoco\PetaPocoQueries.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
