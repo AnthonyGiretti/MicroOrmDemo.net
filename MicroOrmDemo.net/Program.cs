@@ -5,6 +5,7 @@ using MicroOrmDemo.net.Massive;
 using MicroOrmDemo.net.MicroLite;
 using MicroOrmDemo.net.NPoco;
 using MicroOrmDemo.net.OrmLite;
+using MicroOrmDemo.net.PetaPocoRepoSample;
 using MicroOrmDemo.net.PetaPocoSample;
 using MicroOrmDemo.net.Simple.Data;
 using System;
@@ -46,8 +47,8 @@ namespace MicroOrmDemo.net
             Console.ReadLine();
             */
 
-            var repo = new OrmLiteRepository();
-            var data = repo.GetOrders().Result;
+            var repo = new NPocoRepository();
+            var result = repo.GetWorkOrdersAndProducts();
         }
 
         private static void Init()

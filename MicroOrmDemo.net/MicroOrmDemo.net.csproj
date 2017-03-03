@@ -350,10 +350,12 @@
     <Compile Include="MicroLite\MicroLiteQueries.cs" />
     <Compile Include="Models\PetaPoco.cs" />
     <Compile Include="NPoco\NPocoQueries.cs" />
+    <Compile Include="NPoco\NPocoRepository.cs" />
     <Compile Include="Orders.cs" />
     <Compile Include="OrmLite\OrmLiteQueries.cs" />
     <Compile Include="OrmLite\OrmLiteRepository.cs" />
     <Compile Include="PetaPoco\PetaPocoQueries.cs" />
+    <Compile Include="PetaPoco\PetaPocoRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Simple.Data\SimpleDataQueries.cs" />

@@ -79,10 +79,10 @@ namespace MicroOrmDemo.net.Massive
         {
             var table = new OrdersDynamic();
 
-            var data =  table.Query(@"SELECT TOP 500 [WorkOrderID] AS Id, P.Name AS ProductName, [OrderQty] AS Quantity, [DueDate] AS Date
-                                 FROM [AdventureWorks2014].[Production].[WorkOrder] AS WO 
-                                 INNER JOIN[Production].[Product] AS P ON P.ProductID = WO.ProductID
-                                 WHERE WorkOrderID = @0", id).FirstOrDefault();
+            var data =  table.Query(@"SELECT  [WorkOrderID] AS Id, P.Name AS ProductName, [OrderQty] AS Quantity, [DueDate] AS Date
+                                     FROM [AdventureWorks2014].[Production].[WorkOrder] AS WO 
+                                     INNER JOIN[Production].[Product] AS P ON P.ProductID = WO.ProductID
+                                     WHERE WorkOrderID = @0", id).FirstOrDefault();
 
             return new Orders
             {
