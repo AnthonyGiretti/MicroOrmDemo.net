@@ -80,7 +80,7 @@ namespace MicroOrmDemo.net.OrmLite
                           .From<WorkOrder>()
                           .Join<Product>((w, p) => w.ProductID == p.ProductID)
                           .Select<WorkOrder, Product>((w, p) => new { Id = w.WorkOrderId, ProductName = p.Name, Quantity = w.OrderQty, Date = w.DueDate })
-                          .Where<WorkOrder>(w=> w.WorkOrderId == id);
+                          .Where<WorkOrder>(w => w.WorkOrderId == id);
 
                 var data =  await dbConnection.SelectAsync<Orders>(sql);
                 return data.FirstOrDefault();

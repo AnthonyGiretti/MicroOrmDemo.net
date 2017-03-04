@@ -60,8 +60,8 @@ namespace MicroOrmDemo.net.PetaPocoRepoSample
             using (var db = new PetaPoco.Database("AdventureWorks2014"))
             {
                 return db.Query<Orders>(@"SELECT TOP 500 [WorkOrderID] AS Id, P.Name AS ProductName, [OrderQty] AS Quantity, [DueDate] AS Date
-                                         FROM [AdventureWorks2014].[Production].[WorkOrder] AS WO 
-                                         INNER JOIN[Production].[Product] AS P ON P.ProductID = WO.ProductID").ToList();
+                                          FROM [AdventureWorks2014].[Production].[WorkOrder] AS WO 
+                                          INNER JOIN[Production].[Product] AS P ON P.ProductID = WO.ProductID").ToList();
 
                 return GetWorkOrdersWithProduct(db)
                        .Select(x=> new Orders { Id = x.WorkOrderId, Date = x.DueDate, Quantity = x.OrderQty, ProductName = x.Product.Name }).ToList();

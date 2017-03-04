@@ -370,6 +370,7 @@
     <None Include="EF\AdventureWork.edmx.diagram">
       <DependentUpon>AdventureWork.edmx</DependentUpon>
     </None>
+    <None Include="model.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -47,8 +47,8 @@ namespace MicroOrmDemo.net
             Console.ReadLine();
             */
 
-            var repo = new NPocoRepository();
-            var result = repo.GetWorkOrdersAndProducts();
+            var repo = new OrmLiteRepository();
+            var result = repo.GetOrderById(1).Result;
         }
 
         private static void Init()

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MicroOrmDemo.net.NPoco
-{
+{      
     public class Orders
     {
         public Orders() { }
@@ -42,7 +42,7 @@ namespace MicroOrmDemo.net.NPoco
     }
 
     public class NPocoRepository
-    {
+    {           
         public NPocoRepository()
         { }
 

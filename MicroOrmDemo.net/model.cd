@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Business object">
+    <Position X="4.625" Y="1.729" Height="0.344" Width="1.106" />
+  </Comment>
+  <Comment CommentText="Entities">
+    <Position X="8.99" Y="1.708" Height="0.344" Width="0.7" />
+  </Comment>
+  <Class Name="MicroOrmDemo.net.Orders">
+    <Position X="4.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAgAAIAAA=</HashCode>
+      <FileName>Orders.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MicroOrmDemo.net.WorkOrder">
+    <Position X="7.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACAAAAAAAAACAAiAAAAAAgAgAAAAAAAAAAAEIBQAA=</HashCode>
+      <FileName>Orders.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Product" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MicroOrmDemo.net.Product">
+    <Position X="9.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Orders.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

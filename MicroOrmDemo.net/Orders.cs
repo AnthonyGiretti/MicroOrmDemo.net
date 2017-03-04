@@ -36,6 +36,8 @@ namespace MicroOrmDemo.net
         public DateTime? DueDate { get; set; }
         public int? ScrapReasonID { get; set; }
         public DateTime? ModifiedDate { get; set; }
+
+        public Product Product { get; set; }
     }
 
     //Db entity
@@ -44,5 +46,10 @@ namespace MicroOrmDemo.net
     {
         public int ProductID { get; set; }
         public string Name { get; set; }
+
+        public Product()
+        {
+
+        }
     }
 }
