@@ -97,5 +97,27 @@ namespace MicroOrmDemo.net.NPoco
                 return db.FetchMultiple<WorkOrder, Product>("SELECT TOP 500 * FROM[AdventureWorks2014].[Production].[WorkOrder];SELECT * FROM [Production].[Product];");
             }
         }
+        public async Task Add(WorkOrder workOrder)
+        {
+            using (var db = new Database("AdventureWorks2014"))
+            {
+                await db.InsertAsync(workOrder);
+            }
+        }
+
+        public async Task Update(WorkOrder workOrder)
+        {
+            using (var db = new Database("AdventureWorks2014"))
+            {
+                await db.UpdateAsync(workOrder);
+            }
+        }
+        public async Task Delete(WorkOrder workOrder)
+        {
+            using (var db = new Database("AdventureWorks2014"))
+            {
+                await db.DeleteAsync(workOrder);
+            }
+        }
     }
 }

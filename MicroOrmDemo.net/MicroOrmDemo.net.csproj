@@ -102,6 +102,7 @@
   <ItemGroup>
     <Compile Include="AdoNet\AdoQueries.cs" />
     <Compile Include="Dapper\DapperQueries.cs" />
+    <Compile Include="Dapper\DapperRepository.cs" />
     <Compile Include="EF\Address.cs">
       <DependentUpon>AdventureWork.tt</DependentUpon>
     </Compile>
