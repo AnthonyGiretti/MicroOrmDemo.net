@@ -21,7 +21,8 @@ namespace MicroOrmDemo.net
     {
         static void Main(string[] args)
         {
-            
+            Console.WriteLine();
+            Console.WriteLine("1 requête 1er démarrage");
             Init();
 
             Console.WriteLine();
