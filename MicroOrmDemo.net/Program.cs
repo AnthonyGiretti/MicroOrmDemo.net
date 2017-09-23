@@ -54,7 +54,6 @@ namespace MicroOrmDemo.net
             MultipleIteration(1);
         }
 
-
         private static void SingleCall()
         {
             //Ado.net
